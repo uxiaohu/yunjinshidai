@@ -1,0 +1,625 @@
+  /* 内容容器 */
+  
+  .content {
+      width: 1460px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      align-items: center;
+      font-family: 'Courier New', Courier, monospace;
+  }
+  /* nav字体 */
+  
+  @font-face {
+      font-family: 'shufa';
+      /* 自定义字体名称 */
+      src: url('./程荣光刻楷.ttf') format('truetype');
+      /* Safari, Android, iOS */
+      font-weight: normal;
+      /* 字体粗细 */
+      font-style: normal;
+      /* 字体样式 */
+  }
+  /* 导航栏 */
+  
+  .nav {
+      width: 100%;
+      height: 90px;
+      background-color: #fff;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateZ(0);
+      /* 强制启用GPU加速 */
+  }
+  /* 导航内容 */
+  
+  .navcontent {
+      display: flex;
+      gap: 10px;
+  }
+  /* 导航链接样式 */
+  
+  .navcontent a {
+      padding: 10px 20px;
+      text-decoration: none;
+      color: black;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 25px;
+      font-weight: bolder;
+      transition: color 0.3s ease, transform 0.3s ease;
+      backface-visibility: hidden;
+      /* 提升渲染性能 */
+      transform: translateZ(0);
+      /* 强制启用GPU加速 */
+  }
+  
+  .nav .logo {
+      font-family: 'shufa', sans-serif;
+      margin-right: 20px;
+      font-size: 35px;
+      position: absolute;
+      left: 100px;
+      text-decoration: none;
+      color: #afac8a;
+  }
+  
+  .nav .logo:hover {
+      color: #afac8a;
+  }
+  
+  .navcontent a:hover {
+      color: #afac8a;
+  }
+  /* 导航列表项 */
+  
+  .navcontent li {
+      position: relative;
+      list-style: none;
+  }
+  /* 二级菜单样式 */
+  
+  .navcontent>li {
+      position: relative;
+      /* 为了让绝对定位的submenu相对于当前li定位 */
+  }
+  
+  .navcontent .submenu {
+      position: absolute;
+      top: 100%;
+      /* 将submenu放在li的下方 */
+      left: 0;
+      /* 确保submenu在li的左边缘对齐 */
+      display: flex;
+      flex-direction: column;
+      background-color: #ffffff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      /* 隐藏ul */
+  }
+  /* 当鼠标悬停在对应的一级导航链接上时，显示二级菜单 */
+  
+  .navcontent>li:hover .submenu {
+      opacity: 1;
+      visibility: visible;
+      /* 显示ul */
+      transform: translateY(0);
+  }
+  /* 一级导航链接样式 */
+  
+  .navcontent>li>a {
+      display: block;
+      /* 使链接占据整个li */
+      padding: 10px 15px;
+      /* 添加内边距 */
+      text-decoration: none;
+      /* 去掉下划线 */
+      color: #333;
+      /* 链接颜色 */
+  }
+  /* 二级导航链接样式 */
+  
+  .submenu li a {
+      padding: 10px 15px;
+      /* 添加内边距 */
+      text-decoration: none;
+      /* 去掉下划线 */
+      color: #333;
+      /* 链接颜色 */
+  }
+  
+  .submenu li a:hover {
+      background-color: #f0f0f0;
+      /* 悬停时的背景颜色 */
+  }
+  /* 二级菜单链接样式 */
+  
+  .navcontent ul li a {
+      margin-top: 10px;
+      margin-bottom: 2px;
+      padding: 10px;
+      display: block;
+      color: black;
+      white-space: nowrap;
+      margin-left: -35px;
+      font-size: 20px;
+      transition: all 0.3s ease;
+      width: 120px;
+      text-align: center;
+      /* Ensures the anchor takes the full width of the li */
+  }
+  
+  .navcontent ul li a:hover {
+      border-bottom: 2px solid #afac8a;
+      color: #afac8a;
+  }
+  /* 内容区域 */
+  /* 文字样式 */
+  
+  .neirong {
+      width: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  /* .banner {
+      width: 100%;
+      position: relative;
+      height: 800px;
+      margin-top: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+  } */
+  /* 背景图片 */
+  /* 整个Banner容器 */
+  
+  .banner {
+      width: 100%;
+      height: 800px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url('img/白.png') no-repeat center center/cover;
+      position: relative;
+  }
+  /* 内容容器，绝对定位使其居中显示 */
+  
+  .content-container {
+      width: 85%;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* 半透明背景 */
+      border-radius: 15px;
+      padding: 30px 0px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      color: #fff;
+  }
+  /* 标题样式 */
+  
+  .content-container .title {
+      font-size: 72px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #f5f5f5;
+      letter-spacing: 2px;
+  }
+  /* 正文内容样式 */
+  
+  .content-container .content {
+      text-align: center;
+      width: 90%;
+      font-size: 20px;
+      line-height: 1.8;
+      color: #e0e0e0;
+  }
+  /* 动画效果 */
+  
+  .content-container {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1.5s ease forwards;
+  }
+  /* 动画关键帧 */
+  
+  @keyframes fadeInUp {
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+  /* 自适应设计 */
+  
+  .daibiaozuopin {
+      width: 100%;
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .daibiaozuopin .title {
+      width: 100%;
+      height: 60px;
+      position: relative;
+  }
+  
+  .daibiaozuopin .title .hr {
+      border-top: 3px solid #d8cc93;
+  }
+  
+  .daibiaozuopin .title .titletext {
+      position: absolute;
+      width: 100%;
+      font-size: 40px;
+      z-index: 1;
+      top: -20px;
+      width: 100%;
+      text-align: center;
+  }
+  
+  .daibiaozuopin .title .titletext text {
+      background-color: white;
+      padding: 0px 10px;
+      width: 100%;
+  }
+  
+  .allimgcontent {
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.allimgcontent .imgcontent {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 190px;
+  overflow: hidden;
+}
+
+.allimgcontent .imgcontent img {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  object-fit: cover;
+}
+
+.allimgcontent .imgcontent .text {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(35, 24, 21, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  line-height: 25px;
+  opacity: 0;
+  /* 初始透明度为0 */
+  transition: opacity ease 0.5s;
+  /* 只对透明度应用过渡效果 */
+}
+
+.allimgcontent .imgcontent:hover .text {
+  opacity: 1;
+  /* 鼠标悬停时设置透明度为1 */
+}
+  
+  .yuanliao {
+      width: 75%;
+      margin-top: 60px;
+  }
+  
+  .yuanliao .title {
+      width: 100%;
+      height: 60px;
+      position: relative;
+  }
+  
+  .yuanliao .title .hr {
+      border-top: 3px solid #231815;
+  }
+  
+  .yuanliao .title .titletext {
+      position: absolute;
+      width: 100%;
+      font-size: 40px;
+      z-index: 1;
+      top: -20px;
+      width: 100%;
+      text-align: center;
+  }
+  
+  .yuanliao .title .titletext text {
+      background-color: white;
+      padding: 0px 10px;
+      width: 100%;
+  }
+  
+  .yuanliao .yuanliaotable {
+      width: 100%;
+  }
+  
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+      background-color: #fff;
+  }
+  /* 表格标题 */
+  
+  th {
+      color: #333;
+      font-size: 20px;
+      padding: 12px 15px;
+      font-weight: bold;
+      text-align: left;
+      border-bottom: 5px solid #d8cc93;
+  }
+  /* 表格单元格 */
+  
+  td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #d8cc93;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      height: 50px;
+      font-size: 18px;
+  }
+  /* 表格行鼠标悬停效果 */
+  
+  tr:hover td {
+      background-color: #f0ead6;
+  }
+  /* 动画效果 */
+  
+  td,
+  th {
+      animation: fadeIn 0.5s ease;
+  }
+  
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+      }
+      to {
+          opacity: 1;
+      }
+  }
+  /* 特殊高亮行 */
+  /* 图片版权说明部分 */
+  
+  .yuanliaotable .footer {
+      text-align: right;
+      font-size: 14px;
+      margin-top: 10px;
+      color: #88641a;
+  }
+  
+  .allylcontnet {
+      width: 85%;
+  }
+  
+  .ylcontent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+      /* 禁止换行 */
+      width: 100%;
+      /* 设置最大宽度 */
+      margin: 0 auto;
+      /* 居中对齐 */
+  }
+  /* 左边的图片部分 */
+  
+  .ylcontent .image-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 10px;
+  }
+  /* 图片样式 */
+  
+  .ylcontent .image-section img {
+      width: 100%;
+      /* 确保图片宽度充满其父容器 */
+      /* 最大宽度控制 */
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.5s ease;
+  }
+  /* 鼠标悬停时图片放大 */
+  
+  .ylcontent .image-section img:hover {
+      transform: scale(1.05);
+  }
+  /* 图标样式 */
+  /* 右边的文字部分 */
+  
+  .ylcontent .text-section {
+      flex: 1;
+      padding: 20px;
+      text-align: left;
+      /* 控制文字区域的最大宽度 */
+  }
+  /* 标题样式 */
+  
+  .ylcontent .text-section h1 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 20px;
+      font-family: 'SimSun', serif;
+      text-align: center;
+  }
+  /* 文字描述样式 */
+  
+  .ylcontent .text-section p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #666;
+  }
+  /* 引用样式 */
+  
+  .ylcontent .text-section .quote {
+      font-size: 18px;
+      color: #ebdeb5;
+      margin-top: 20px;
+      font-style: italic;
+      text-align: end;
+  }
+  /* 动画淡入效果 */
+  
+  .ylcontent .text-section,
+  .ylcontent .image-section img {
+      animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+      from {
+          opacity: 0;
+          transform: translateY(20px);
+      }
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+  
+  .quote-section {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+      width: 100%;
+      margin: 0 auto;
+  }
+  /* Text content styling */
+  
+  .quote-content {
+      text-align: start;
+      font-size: 16.7px;
+      color: #333;
+      line-height: 1.8;
+      font-family: 'SimSun', serif;
+      transition: color 0.3s ease, transform 0.3s ease;
+  }
+  /* Quote source styling */
+  
+  .quote-source {
+      text-align: end;
+      font-size: 16px;
+      color: #e2cf93;
+      font-style: italic;
+      margin-top: 20px;
+      transition: color 0.3s ease;
+  }
+  
+  .allylcontnet .title {
+      margin: 0 auto;
+      margin-top: 40px;
+      width: 90%;
+      height: 60px;
+      position: relative;
+  }
+  
+  .allylcontnet .title .hr {
+      border-top: 3px solid #231815;
+  }
+  
+  .allylcontnet .title .titletext {
+      position: absolute;
+      width: 100%;
+      font-size: 40px;
+      z-index: 1;
+      top: -20px;
+      width: 100%;
+      text-align: center;
+  }
+  
+  .allylcontnet .title .titletext text {
+      background-color: white;
+      padding: 0px 10px;
+      width: 100%;
+  }
+  
+  .endcontainer {
+      width: 100%;
+  }
+  
+  .endcontainer img {
+      width: 100%;
+      height: 500px;
+      border-radius: 10px;
+  }
+  /* foot内容 */
+  
+  .color-block span {
+      position: relative;
+      z-index: 1;
+  }
+  
+  .foot {
+      margin: 30px auto 0 auto;
+      position: relative;
+      bottom: 0px;
+      width: 100%;
+      height: 350px;
+      background-color: #231815;
+      ;
+  }
+  
+  .foot .name {
+      position: absolute;
+      text-align: center;
+      line-height: 40px;
+      top: 50px;
+      left: 50%;
+      margin-left: -100px;
+      height: 40px;
+      font-size: 50px;
+      color: #efeff0;
+      font-family: 'shufa';
+      font-weight: bold;
+      letter-spacing: 5px;
+  }
+  
+  .foot .foot-content {
+      position: absolute;
+      text-align: center;
+      line-height: 40px;
+      top: 100px;
+      left: 50%;
+      margin-left: -470px;
+      font-size: 15px;
+      color: #fafafa;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bold;
+      letter-spacing: 2px;
+  }

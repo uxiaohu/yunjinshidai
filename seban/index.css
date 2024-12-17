@@ -1,0 +1,223 @@
+/* 内容容器 */
+
+.content {
+  width: 1460px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+}
+/* nav字体 */
+
+@font-face {
+  font-family: "shufa";
+  /* 自定义字体名称 */
+  src: url("./程荣光刻楷.ttf") format("truetype");
+  /* Safari, Android, iOS */
+  font-weight: normal;
+  /* 字体粗细 */
+  font-style: normal;
+  /* 字体样式 */
+}
+/* 导航栏 */
+
+.nav {
+  width: 100%;
+  height: 90px;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateZ(0);
+  /* 强制启用GPU加速 */
+}
+/* 导航内容 */
+
+.navcontent {
+  display: flex;
+  gap: 10px;
+}
+/* 导航链接样式 */
+
+.navcontent a {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+  font-weight: bolder;
+  transition: color 0.3s ease, transform 0.3s ease;
+  backface-visibility: hidden;
+  /* 提升渲染性能 */
+  transform: translateZ(0);
+  /* 强制启用GPU加速 */
+}
+
+.nav .logo {
+  font-family: "shufa", sans-serif;
+  margin-right: 20px;
+  font-size: 35px;
+  position: absolute;
+  left: 100px;
+  text-decoration: none;
+  color: #afac8a;
+}
+
+.nav .logo:hover {
+  color: #afac8a;
+}
+
+.navcontent a:hover {
+  color: #afac8a;
+}
+/* 导航列表项 */
+
+.navcontent li {
+  position: relative;
+  list-style: none;
+}
+/* 二级菜单样式 */
+
+.navcontent > li {
+  position: relative;
+  /* 为了让绝对定位的submenu相对于当前li定位 */
+}
+
+.navcontent .submenu {
+  position: absolute;
+  top: 100%;
+  /* 将submenu放在li的下方 */
+  left: 0;
+  /* 确保submenu在li的左边缘对齐 */
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  /* 隐藏ul */
+}
+/* 当鼠标悬停在对应的一级导航链接上时，显示二级菜单 */
+
+.navcontent > li:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  /* 显示ul */
+  transform: translateY(0);
+}
+/* 一级导航链接样式 */
+
+.navcontent > li > a {
+  display: block;
+  /* 使链接占据整个li */
+  padding: 10px 15px;
+  /* 添加内边距 */
+  text-decoration: none;
+  /* 去掉下划线 */
+  color: #333;
+  /* 链接颜色 */
+}
+/* 二级导航链接样式 */
+
+.submenu li a {
+  padding: 10px 15px;
+  /* 添加内边距 */
+  text-decoration: none;
+  /* 去掉下划线 */
+  color: #333;
+  /* 链接颜色 */
+}
+
+.submenu li a:hover {
+  background-color: #f0f0f0;
+  /* 悬停时的背景颜色 */
+}
+/* 二级菜单链接样式 */
+
+.navcontent ul li a {
+  margin-top: 10px;
+  margin-bottom: 2px;
+  padding: 10px;
+  display: block;
+  color: black;
+  white-space: nowrap;
+  margin-left: -35px;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  width: 120px;
+  text-align: center;
+  /* Ensures the anchor takes the full width of the li */
+}
+
+.navcontent ul li a:hover {
+  border-bottom: 2px solid #afac8a;
+  color: #afac8a;
+}
+/* 内容区域 */
+/* 文字样式 */
+
+.neirong {
+  width: 90%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.img {
+  margin-top: 20px;
+  width: 100%;
+
+  border-radius: 10px;
+}
+.img img {
+  width: 100%;
+}
+
+.foot {
+  margin: 30px auto 0 auto;
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  height: 350px;
+  background-color: #231815;
+}
+
+.foot .name {
+  position: absolute;
+  text-align: center;
+  line-height: 40px;
+  top: 50px;
+  left: 50%;
+  margin-left: -100px;
+  height: 40px;
+  font-size: 50px;
+  color: #efeff0;
+  font-family: "shufa";
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+
+.foot .foot-content {
+  position: absolute;
+  text-align: center;
+  line-height: 40px;
+  top: 100px;
+  left: 50%;
+  margin-left: -470px;
+  font-size: 15px;
+  color: #fafafa;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
